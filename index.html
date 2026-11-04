@@ -297,6 +297,14 @@ footer{border-top:4px solid #aab2d5}
 @media(max-width:980px){.art{width:100%;clip-path:none;background:linear-gradient(120deg,#aab2d5,#e5e1e6)}.hero2-in{padding-top:36px;padding-bottom:36px}}
 @media(max-width:600px){.cal{transform:none;background:transparent;box-shadow:none;overflow:visible}.cal .m{background:#47d9dd;color:#141b4d;border-radius:4px}.cal .d{color:white;font-size:36px}.cal .w{color:#e0e3f6}.h2-copy h2{font-size:36px}.h2-copy p{font-size:15px}.hero2-in{padding:28px 20px 34px}.caps li{font-size:10px}}
 
+
+/* On-demand timing: hover a trail stop or agenda item, or focus it with the keyboard. */
+.schedule-tooltip{position:fixed;z-index:1000;max-width:min(320px,calc(100vw - 24px));padding:12px 16px;border:1px solid #ffffff25;border-radius:12px;background:#141b4d;color:white;pointer-events:none;font-size:14px;line-height:1.5;box-shadow:0 8px 24px #141b4d24}
+.schedule-tooltip[hidden]{display:none}.schedule-tooltip strong{display:block;font-size:17px;letter-spacing:.015em}.schedule-tooltip span{color:#d4dcf3;font-size:13px}
+
+.panel-schedule{position:relative;z-index:1;display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;margin:16px 0 5px;padding:8px 14px;border:1px solid currentColor;border-radius:10px;background:#ffffff18;color:inherit;font-variant-numeric:tabular-nums}
+.panel-schedule strong{font-size:21px;font-weight:800;line-height:1.25;letter-spacing:.015em}.panel-schedule span{font-size:14px;font-weight:600;opacity:.9}
+@media(max-width:600px){.panel-schedule strong{font-size:19px}.panel-schedule{gap:9px;padding:8px 12px}}
 </style>
 </head>
 <body>
@@ -384,7 +392,7 @@ const STOPS = [
     "points": [
       "Introductions from the Tecnimede and Salesforce teams",
       "Confirm session objectives and Tecnimede's success criteria",
-      "Walk through the trail: field and commercial demos → AI hands-on → lunch → architecture, security and administration → roadmap → next steps",
+      "Walk through the trail: field visits and MSL → territory and key accounts → break → marketing and consent → events → orders and trade marketing → AI hands-on → lunch → architecture, security and administration → roadmap → next steps",
       "Ground rules: interrupt anytime, park deeper topics for the Q&A"
     ],
     "value": "Agreeing the objectives up front keeps every demo tied to Tecnimede's priorities rather than to feature lists.",
@@ -427,34 +435,6 @@ const STOPS = [
   },
   {
     "type": "demo",
-    "short": "Marketing Automation & Consent Management",
-    "title": "Marketing Automation & Consent Management",
-    "summary": "Running compliant, personalised HCP journeys where consent is captured once and respected everywhere.",
-    "points": [
-      "Build an HCP segment from unified CRM and engagement data",
-      "Orchestrate a multi-step email/web journey with approved content",
-      "Capture and manage consent and channel preferences (GDPR-ready)",
-      "Consent changes flow instantly to field and medical channels",
-      "Engagement signals go back to the rep as next-best actions",
-      "Follow an email click through the HCP portal into the LSC timeline and an action for the representative",
-      "Build, trigger and monitor a journey in Marketing Cloud Advance, with shared consent and engagement data",
-      "Marketing view of recommendation volumes, acceptance, rejection and reasons"
-    ],
-    "value": "Marketing and field share one consent record and one engagement history, which cuts compliance risk and stops HCPs receiving duplicate messages.",
-    "personas": [
-      "Marketing",
-      "Compliance",
-      "Sales Rep"
-    ],
-    "products": [
-      "Marketing Cloud / Agentforce Marketing",
-      "Consent Management",
-      "Data 360",
-      "Content approval"
-    ]
-  },
-  {
-    "type": "demo",
     "short": "Field Visits, Regional Management & MSL",
     "title": "Field Visits, Regional Management & Medical Science Liaison",
     "summary": "Follow a representative through a complete iPad visit, then explore the regional manager and MSL perspectives with clear separation between promotional and scientific activity.",
@@ -483,6 +463,31 @@ const STOPS = [
     ]
   },
   {
+    "type": "demo",
+    "short": "Connecting Territory & Key Account Strategy",
+    "title": "Connecting Territory & Key Account Strategy",
+    "summary": "Managing institutions and networks strategically, and aligning territories and resources to opportunity.",
+    "points": [
+      "Strategic account plan: stakeholders, goals and action plans for a hospital or network",
+      "Relationship map across HCPs, departments and decision-makers",
+      "Cross-functional account team collaboration (KAM, rep, MSL, market access)",
+      "Territory planning: alignment, workload balancing and coverage",
+      "AI-assisted account insights and suggested next steps"
+    ],
+    "value": "Shifts Tecnimede from call volume to account value, with a shared plan every team can execute against.",
+    "personas": [
+      "KAM",
+      "Sales Rep",
+      "Leadership"
+    ],
+    "products": [
+      "Account Planning",
+      "Territory Management",
+      "Stakeholder maps",
+      "Agentforce"
+    ]
+  },
+  {
     "type": "break",
     "short": "Break",
     "title": "Break · 10 min",
@@ -490,7 +495,36 @@ const STOPS = [
     "points": [],
     "value": "",
     "personas": [],
-    "products": []
+    "products": [],
+    "pauseText": "After the break: Marketing Automation & Consent Management."
+  },
+  {
+    "type": "demo",
+    "short": "Marketing Automation & Consent Management",
+    "title": "Marketing Automation & Consent Management",
+    "summary": "Running compliant, personalised HCP journeys where consent is captured once and respected everywhere.",
+    "points": [
+      "Build an HCP segment from unified CRM and engagement data",
+      "Orchestrate a multi-step email/web journey with approved content",
+      "Capture and manage consent and channel preferences (GDPR-ready)",
+      "Consent changes flow instantly to field and medical channels",
+      "Engagement signals go back to the rep as next-best actions",
+      "Follow an email click through the HCP portal into the LSC timeline and an action for the representative",
+      "Build, trigger and monitor a journey in Marketing Cloud Advance, with shared consent and engagement data",
+      "Marketing view of recommendation volumes, acceptance, rejection and reasons"
+    ],
+    "value": "Marketing and field share one consent record and one engagement history, which cuts compliance risk and stops HCPs receiving duplicate messages.",
+    "personas": [
+      "Marketing",
+      "Compliance",
+      "Sales Rep"
+    ],
+    "products": [
+      "Marketing Cloud / Agentforce Marketing",
+      "Consent Management",
+      "Data 360",
+      "Content approval"
+    ]
   },
   {
     "type": "demo",
@@ -552,31 +586,6 @@ const STOPS = [
       "Order suggestions",
       "SAP CPI integration",
       "Trade marketing"
-    ]
-  },
-  {
-    "type": "demo",
-    "short": "Connecting Territory & Key Account Strategy",
-    "title": "Connecting Territory & Key Account Strategy",
-    "summary": "Managing institutions and networks strategically, and aligning territories and resources to opportunity.",
-    "points": [
-      "Strategic account plan: stakeholders, goals and action plans for a hospital or network",
-      "Relationship map across HCPs, departments and decision-makers",
-      "Cross-functional account team collaboration (KAM, rep, MSL, market access)",
-      "Territory planning: alignment, workload balancing and coverage",
-      "AI-assisted account insights and suggested next steps"
-    ],
-    "value": "Shifts Tecnimede from call volume to account value, with a shared plan every team can execute against.",
-    "personas": [
-      "KAM",
-      "Sales Rep",
-      "Leadership"
-    ],
-    "products": [
-      "Account Planning",
-      "Territory Management",
-      "Stakeholder maps",
-      "Agentforce"
     ]
   },
   {
@@ -775,13 +784,67 @@ const STOPS = [
   }
 ];
 
+/* ---------- Session timings (local event time, Lisbon) ---------- */
+const STOP_DURATIONS = [10,15,40,15,10,30,15,15,30,45,30,30,15,20,20,20];
+const SESSION_START_MINUTES = 10 * 60;
+const timeLabel = value => `${String(Math.floor(value / 60)).padStart(2,"0")}:${String(value % 60).padStart(2,"0")}`;
+let nextStart = SESSION_START_MINUTES;
+const STOP_SCHEDULE = STOP_DURATIONS.map(duration => {
+  const start = nextStart; nextStart += duration;
+  return {start,end:nextStart,duration,label:`${timeLabel(start)}–${timeLabel(nextStart)} · ${duration} min`};
+});
+const timingTip = document.createElement("div");
+timingTip.id = "schedule-tooltip"; timingTip.className = "schedule-tooltip";
+timingTip.setAttribute("role","tooltip"); timingTip.hidden = true;
+document.body.appendChild(timingTip);
+let timingOwner = null;
+function hideTiming(){
+  timingTip.hidden = true;
+  if(timingOwner) timingOwner.removeAttribute("aria-describedby");
+  timingOwner = null;
+}
+function positionTiming(x,y){
+  const pad=12, gap=16, w=timingTip.offsetWidth, h=timingTip.offsetHeight;
+  y=Math.max(pad,Math.min(y,window.innerHeight-pad));
+  const left=Math.max(pad,Math.min(x+gap,window.innerWidth-w-pad));
+  const top=y+gap+h>window.innerHeight-pad ? Math.max(pad,y-h-gap) : y+gap;
+  timingTip.style.left=`${left}px`;timingTip.style.top=`${top}px`;
+}
+function showTiming(index,owner,event){
+  hideTiming();const item=STOP_SCHEDULE[index];timingOwner=owner;
+  const strong=document.createElement("strong");strong.textContent=`${timeLabel(item.start)}–${timeLabel(item.end)}`;
+  const detail=document.createElement("span");detail.textContent=`${item.duration} min · Lisbon time`;
+  timingTip.replaceChildren(strong,detail);timingTip.hidden=false;
+  owner.setAttribute("aria-describedby",timingTip.id);
+  const box=owner.getBoundingClientRect();
+  positionTiming(event?.clientX ?? box.left+box.width/2,event?.clientY ?? box.bottom);
+}
+function bindTiming(owner,index){
+  owner.addEventListener("mouseenter",event=>showTiming(index,owner,event));
+  owner.addEventListener("mousemove",event=>{if(timingOwner===owner)positionTiming(event.clientX,event.clientY);else showTiming(index,owner,event);});
+  owner.addEventListener("mouseleave",hideTiming);
+  owner.addEventListener("focus",()=>showTiming(index,owner));
+  owner.addEventListener("blur",hideTiming);
+}
+window.addEventListener("scroll",()=>{
+  if(!timingOwner || timingTip.hidden) return;
+  requestAnimationFrame(()=>{
+    if(!timingOwner) return;
+    const box=timingOwner.getBoundingClientRect();
+    if(box.bottom<=0 || box.top>=window.innerHeight) hideTiming();
+    else positionTiming(box.left+box.width/2,box.bottom);
+  });
+},true);
+window.addEventListener("resize",hideTiming);
+document.addEventListener("keydown",event=>{if(event.key==="Escape")hideTiming();});
+
 /* ---------- State ---------- */
-const KEY = "tecnimede-trailmap-2026-11-12-v5";
+const KEY = "tecnimede-trailmap-2026-11-12-v6";
 let state = { active: 0, done: [] };
 try {
   const prefix = "tecnimede-trailmap-2026-11-12";
-  const versions = [5, 4, 3, 2, 1];
-  let loaded = 5;
+  const versions = [6, 5, 4, 3, 2, 1];
+  let loaded = 6;
   for (const version of versions) {
     const raw = localStorage.getItem(version === 1 ? prefix : `${prefix}-v${version}`);
     if (raw) { state = Object.assign(state, JSON.parse(raw)); loaded = version; break; }
@@ -791,6 +854,10 @@ try {
   if (loaded < 3) remap(i => i === 6 ? 7 : i === 7 ? 6 : i);
   if (loaded < 4) remap(i => i >= 9 ? i + 2 : i >= 8 ? i + 1 : i);
   if (loaded < 5) remap(i => i >= 11 ? i + 2 : i >= 8 ? i + 1 : i);
+  if (loaded < 6) {
+    const oldToNew = [0,1,5,2,4,6,7,3,8,9,10,11,12,13,14,15];
+    remap(i => oldToNew[i] ?? i);
+  }
   localStorage.setItem(KEY, JSON.stringify(state));
 } catch(e){}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} };
@@ -876,7 +943,7 @@ function drawTrail(){
 
   L.pts.forEach((p, i) => {
     const s = STOPS[i], t = TYPES[s.type];
-    const grp = el("g", { class: "stop", tabindex: "0", role: "listitem", "aria-label": `Stop ${i + 1}: ${s.title}`, "data-i": i, style: `color:${t.color}` }, svg);
+    const grp = el("g", { class: "stop", tabindex: "0", role: "listitem", "aria-label": `Stop ${i + 1}: ${s.title}. ${STOP_SCHEDULE[i].label}`, "data-i": i, style: `color:${t.color}` }, svg);
     el("circle", { cx: p.x, cy: p.y, r: 44, class: "halo" }, grp);
     el("circle", { cx: p.x, cy: p.y, r: 28, class: "ring" }, grp);
     const num = el("text", { x: p.x, y: p.y + 1, class: "num" }, grp);
@@ -885,6 +952,7 @@ function drawTrail(){
     wrap(s.short, 20).forEach((line, li) => {
       el("text", { x: p.x, y: p.y + 76 + li * 18, class: "lbl" }, grp).textContent = line;
     });
+    bindTiming(grp, i);
     grp.addEventListener("click", () => go(i));
     grp.addEventListener("keydown", e => { if (e.key === "Enter") go(i); });
   });
@@ -903,6 +971,7 @@ agenda.innerHTML = STOPS.map((s, i) =>
   `<li><button data-i="${i}"><span class="n" style="background:${TYPES[s.type].color}">${s.type === "break" ? (s.icon || "☕") : i + 1}</span><span class="t">${s.short}</span></button></li>`
 ).join("");
 agenda.addEventListener("click", e => { const b = e.target.closest("button"); if (b) go(+b.dataset.i); });
+agenda.querySelectorAll("button").forEach(button => bindTiming(button, Number(button.dataset.i)));
 
 /* ---------- Panel ---------- */
 const host = document.getElementById("panelHost");
@@ -912,7 +981,7 @@ function renderPanel(){
   const isDone = state.done.includes(i);
   const kicker = s.type === "break" ? "Pause" : `Stop ${String(i + 1).padStart(2, "0")} · ${t.label}`;
   const head = `<div class="panel-head" style="background:linear-gradient(120deg, ${t.color}, ${shade(t.color)});${dark ? "color:#0d1b2e" : ""}">
-      <div class="kicker">${s.type === "demo" ? `<span class="demo-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="3" y="5" width="26" height="17" rx="3"/><path d="M11 27h10M16 22v5"/><path class="pl" d="M13.5 10 L20 13.5 L13.5 17 Z"/></svg></span>` : ""}${kicker}</div><h2>${s.title}</h2><p>${s.summary}</p></div>`;
+      <div class="kicker">${s.type === "demo" ? `<span class="demo-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="3" y="5" width="26" height="17" rx="3"/><path d="M11 27h10M16 22v5"/><path class="pl" d="M13.5 10 L20 13.5 L13.5 17 Z"/></svg></span>` : ""}${kicker}</div><div class="panel-schedule" aria-label="Session time"><strong>${timeLabel(STOP_SCHEDULE[i].start)}–${timeLabel(STOP_SCHEDULE[i].end)}</strong><span>${STOP_SCHEDULE[i].duration} min · Lisbon time</span></div><h2>${s.title}</h2><p>${s.summary}</p></div>`;
   const body = s.type === "break"
     ? `<div class="panel-body"><div class="break-art"><div class="cup">${s.icon || "☕"}</div><p style="color:var(--muted);font-weight:600">${s.pauseText || "Back in 10 minutes with Event Management."}</p></div></div>`
     : `<div class="panel-body" style="--c:${t.color}">
